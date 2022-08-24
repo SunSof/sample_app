@@ -5,11 +5,11 @@
     <%= form_for(:session, url: login_path) do |f| %>
     <div class="mb-3">
       <%= f.label :email, class:"form-label"%>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :session_email, class: 'form-control', id: "session_email", name:"session[email]", type:"text"%>
     </div>
     <div class="mb-3">
       <%= f.label :password, class:"form-label" %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', id:"session_password", name:"session[password]", type:"password" %>
     </div>
     <div class="mb-3 mt-4">
     <%= f.submit "Log in", class: "btn btn-danger" %> 
