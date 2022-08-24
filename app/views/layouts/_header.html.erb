@@ -9,16 +9,16 @@
 					<%= link_to "Users", "#", class: "text-light p-2"%>
 				<% if logged_in?() %>
 					<div class="dropdown">
-						<a class="btn text-white dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
+						<a class="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="#"><%= link_to "Profile", current_user, class:"text-dark ml-2" %></a>
 								<a class="dropdown-item" href="#"><%= link_to "Settings", '#' , class:"text-dark ml-2"%></a>
 								<div class="dropdown-divider border-secondary mb-0"></div>
-								<a class="dropdown-item pt-0" href="#"><%= link_to "Log out", logout_path, method: "delete", class:"text-dark ml-2" %> </a>
+								<a class="dropdown-item pt-0" href="#"><%= button_to "Log out", logout_path, method: :delete, class:"text-dark ml-2 pb-0 btn btn-link" %> </a>
 							</div> 
 					</div> 
 				<% else %>
-					<%= link_to "Log in", login_path, class:"text-white p-2" %>
+					<%= link_to "Log in", login_path, class:"text-light p-2" %>
 				<% end %>
 				</ul>
 			</nav>
