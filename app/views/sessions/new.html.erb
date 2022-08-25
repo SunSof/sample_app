@@ -10,6 +10,10 @@
     <div class="mb-3">
       <%= f.label :password, class:"form-label" %>
       <%= f.password_field :password, class: 'form-control', id:"session_password", name:"session[password]", type:"password" %>
+      <%= f.label :remember_me, class: "checkboxinline" do %> 
+			<%= f.check_box :remember_me %>
+			<span>Remember me on this computer</span>
+			<% end %>
     </div>
     <div class="mb-3 mt-4">
     <%= f.submit "Log in", class: "btn btn-danger" %> 
