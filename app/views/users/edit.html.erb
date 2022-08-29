@@ -1,0 +1,35 @@
+<% provide(:title, 'Edit user') %>
+<!-- <% @user = User.find(params[:id])%> -->
+<div class="container">
+	<h1 class="mt-3 mb-4">Update your profile</h1>
+	<form accept-charset="UTF-8" action="/users/3" class="edit_user" id="edit_user_3" method="post">
+    <input name="_method" type="hidden" value="patch"/>
+		<div class="mb-3">
+      <%= form_for(@user) do |f| %>
+				<%= render 'users/error_messages'%>
+
+				<%= f.label :name, class:"form-label"%>
+				<%= f.text_field :name, class: 'form-control'%>
+		</div>
+		<div class="mb-3">
+				<%= f.label :email, class:"form-label" %>
+				<%= f.email_field :email, class: 'form-control'%>
+		</div>
+		<div class="mb-3">
+				<%= f.label :password, class:"form-label" %>
+				<%= f.password_field :password, class:"form-control"%>
+		</div>
+		<div class="mb=3">
+				<%= f.label :password_confirmation, "Confirmation", class:"form-label" %> 
+				<%= f.password_field :password_confirmation, class:"form-control"%>
+		</div>
+		<div class="mb=3">
+				<%= f.submit "Save changes", class: "btn btn-danger mt-4 mb-4"%> 
+				<% end %>
+		</div>
+    <div class="gravatar_edit mb-5">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank" class="ml-3 text-danger">Change</a>
+    </div>
+	</form>               
+</div>    
