@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   delete 'logout'=> 'sessions#destroy'
   resources :users
   resources :account_activations, only: [:edit]
+  default_url_options :host => "example.com"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
