@@ -8,7 +8,7 @@
       <%= f.email_field :session_email, class: 'form-control', id: "session_email", name:"session[email]", type:"text"%>
     </div>
     <div class="mb-3">
-      <%= f.label :password, class:"form-label" %>
+      <%= f.label :password, class:"form-label" %> <%= link_to "(forgot password)", new_password_reset_path, class:"text-danger small" %>
       <%= f.password_field :password, class: 'form-control', id:"session_password", name:"session[password]", type:"password" %>
       <%= f.label :remember_me, class: "checkboxinline" do %> 
 			<%= f.check_box :remember_me %>
