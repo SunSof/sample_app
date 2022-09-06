@@ -68,6 +68,11 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_sent_at < 2.hours.ago 
   end
+  # Определяет прото-ленту.
+  # Полная реализация приводится в разделе "Следование за пользователями". 
+  def feed()
+    Micropost.where("user_id = ?", id) 
+  end
 
   private
 # Преобразует адрес электронной почты в нижний регистр. 

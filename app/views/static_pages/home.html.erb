@@ -1,14 +1,25 @@
 <% if logged_in? %> 
-<div class="container">
-	<aside class="col-md-4"> 
-		<section class="user_info mb-5">
-			<%= render 'shared/user_info' %> 
-		</section>
-		<section class="micropost_form">
-			<%= render 'shared/micropost_form' %> 
-		</section>
-	</aside> 
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-lg-4">
+			<aside> 
+				<section class="user_info mb-5">
+					<%= render 'shared/user_info' %> 
+				</section>
+				<div class="col-8 p-0">
+					<section class="micropost_form">
+						<%= render 'shared/micropost_form' %> 
+					</section>
+			</div>
+			</aside> 
+		</div>
+		<div class="col-8">
+			<h3>Micropost Feed</h3>
+			<%= render 'shared/feed' %> 
+		</div>
+	</div>
 </div>
+
 <% else %>
 <div class="center jumbotron">
 	<h1>Welcome to the Sample App</h1>
