@@ -1,0 +1,34 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - '**/db/migrate/*'
+    - 'db/schema.rb'
+    - '**/Gemfile.lock'
+    - '**/Rakefile'
+    - '**/rails'
+    - '**/vendor/**/*'
+    - '**/spec_helper.rb'
+    - 'node_modules/**/*'
+    - 'bin/*'
+
+Style/MethodDefParentheses:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true 
+
+Style/DefWithParentheses:
+  Enabled: false 
+
+Style/MultilineBlockChain:
+  Enabled: false  
+  
+Metrics/AbcSize:
+  Enabled: false

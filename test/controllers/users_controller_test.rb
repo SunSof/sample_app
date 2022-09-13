@@ -5,12 +5,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get users_new_url
     assert_response :success
   end
 
-  test "should redirect edit when not logged in" do 
+  test 'should redirect edit when not logged in' do
     get '/users/1/edit'
     assert_not flash.empty?
     assert_redirected_to login_url

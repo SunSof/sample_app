@@ -5,26 +5,26 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "micropost interface" do 
-    log_in_as(@user) 
-    get root_path 
-    # Недопустимая информация в форме. 
+  test 'micropost interface' do
+    log_in_as(@user)
+    get root_path
+    # Недопустимая информация в форме.
     assert_no_difference 'Micropost.count' do
-      post microposts_path, params: {micropost: { content: "" } }
+      post microposts_path, params: { micropost: { content: '' } }
     end
-    assert_select 'div#error_explanation' 
+    assert_select 'div#error_explanation'
     # Допустимая информация в форме.
-    content = "This micropost really ties the room together" 
+    content = 'This micropost really ties the room together'
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params: { micropost: { content: content } }
     end
     # Удаление сообщения.
-    first_micropost = @user.microposts.paginate(page: 1).first 
+    first_micropost = @user.microposts.paginate(page: 1).first
     assert_difference 'Micropost.count', -1 do
-      delete micropost_path(first_micropost) 
+      delete micropost_path(first_micropost)
     end
-    # Переход в профиль другого пользователя. 
-    get user_path(users(:archer)) 
+    # Переход в профиль другого пользователя.
+    get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
 end

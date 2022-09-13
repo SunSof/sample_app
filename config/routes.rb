@@ -10,22 +10,22 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout'=> 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy'
   resources :users do
     member do
       get :following
-    end 
+    end
   end
   resources :users do
     member do
       get :followers
-    end 
+    end
   end
   resources :users
   resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :microposts, only: [:create, :destroy]
-  resources :relationships, only:[:create, :destroy]
-  default_url_options :host => "example.com"
+  resources :password_resets, only: %i[new create edit update]
+  resources :microposts, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
+  default_url_options host: 'example.com'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
